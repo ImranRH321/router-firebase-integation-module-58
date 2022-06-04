@@ -6,6 +6,8 @@ import Home from "./componets/Home/Home";
 import Login from "./componets/Login/Login";
 import Register from "./componets/Register/Register";
 import Product from "./componets/Product/Product";
+import RequiredAuth from "./componets/RequiredAuth/RequiredAuth";
+import Orders from "./componets/Orders/Orders";
 
 const App = () => {
   return (
@@ -16,6 +18,11 @@ const App = () => {
         <Route path="product" element={<Product></Product>}></Route>
         <Route path="/register" element={<Register></Register>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
+        <Route path="orders" element={
+          <RequiredAuth>
+            <Orders></Orders>
+          </RequiredAuth>
+        }></Route>
       </Routes>
     </div>
   );

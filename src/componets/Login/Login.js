@@ -6,13 +6,13 @@ import app from "../../firebase.init";
 const auth = getAuth(app);
 
 const Login = () => {
-  const [signInWithGoogle, user] = useSignInWithGoogle(auth);
+  const [signInWithGoogle] = useSignInWithGoogle(auth);
 
   return (
     <div>
       <h2>Place Login </h2>
       <div>
-        <button onClick={()=> signInWithGoogle()}>Google sign in</button>
+        <button onClick={() => signInWithGoogle()}>Google sign in</button>
       </div>
       <br />
       <form>
