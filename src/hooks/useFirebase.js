@@ -3,8 +3,8 @@ import app from "../firebase.init";
 import {
   getAuth,
   GoogleAuthProvider,
-  onAuthStateChanged,
   signInWithPopup,
+  onAuthStateChanged,
   signOut,
 } from "firebase/auth";
 
@@ -26,25 +26,29 @@ const useFirebase = () => {
   };
  
   const handleSignOut = () => {
-    const auth = getAuth();
-    signOut(auth).then(() => {
-    }).catch((error) => {
-      console.log(error);
-    });
+    signOut(auth)
+    .then(result => {
+
+    }).catch(error=> {
+        console.log(error);
+    })
   }
 
-  // number 1
+
   useEffect(() => {
     onAuthStateChanged(auth, user => {
-      setUser(user);
+        setUser(user)
     });
   }, []);
+
+
+
 
   return {
     user,
     signWithInGoogle,
     handleSignOut
-  };
+  }
 };
 
 export default useFirebase;
