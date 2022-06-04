@@ -1,5 +1,5 @@
 import React from "react";
-import './App.css'
+import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import Header from "./componets/Header/Header";
 import Home from "./componets/Home/Home";
@@ -15,14 +15,22 @@ const App = () => {
       <Header></Header>
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
-        <Route path="product" element={<Product></Product>}></Route>
         <Route path="/register" element={<Register></Register>}></Route>
-        <Route path="/login" element={<Login></Login>}></Route>
-        <Route path="orders" element={
+        <Route path="product" element={
           <RequiredAuth>
-            <Orders></Orders>
+            <Product></Product>
           </RequiredAuth>
         }></Route>
+
+        <Route path="/login" element={<Login></Login>}></Route>
+        <Route
+          path="orders"
+          element={
+            <RequiredAuth>
+              <Orders></Orders>
+            </RequiredAuth>
+          }
+        ></Route>
       </Routes>
     </div>
   );
